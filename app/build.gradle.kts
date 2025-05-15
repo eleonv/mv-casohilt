@@ -45,8 +45,15 @@ android {
 
 dependencies {
 
+    // injeccion de dependencias
     implementation("com.google.dagger:hilt-android:2.56.2")
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
+    //Retrofit (Consumo de servicios)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
