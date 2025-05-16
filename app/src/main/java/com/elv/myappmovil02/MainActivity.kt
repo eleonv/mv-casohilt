@@ -11,13 +11,27 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import com.elv.myappmovil02.hilt.ProductService
+import com.elv.myappmovil02.hilt.ProductViewModel
 import com.elv.myappmovil02.ui.theme.MyAppMovil02Theme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var productViewModel: ProductViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
+
+        val productService = ProductService()
+        //val viewModelFactory = ProductViewModel.ProductViewModelFactory(productService)
+        //productViewModel = ViewModelProvider(this, viewModelFactory)[ProductViewModel::class.java]
+        // --- Fin de la creación manual ---
+
+
+
+        /*setContent {
             MyAppMovil02Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
@@ -26,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
-        }
+        }*/
     }
 }
 
