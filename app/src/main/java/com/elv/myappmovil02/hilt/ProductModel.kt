@@ -1,5 +1,6 @@
 package com.elv.myappmovil02.hilt
 
+//@Serializable
 data class ProductModel(
     val id: String,
     val title: String,

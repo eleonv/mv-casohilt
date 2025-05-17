@@ -1,10 +1,14 @@
 package com.elv.myappmovil02.hilt
 
-class GetProducUseCase {
-    private  val repository = ProductRepository()
+import javax.inject.Inject
 
-    suspend operator fun invoke(): ProductModel? {
-        return repository.getAllProducts()
+
+class GetProducUseCase @Inject constructor(
+    private val repository: ProductRepository
+    //private val provider: ProductProvider
+)  {
+    suspend operator fun invoke(productId: Int): ProductModel? {
+        return repository.getProductFromApi(productId)
     }
 
 }

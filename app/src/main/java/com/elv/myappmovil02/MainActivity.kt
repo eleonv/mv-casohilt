@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -15,19 +16,23 @@ import androidx.lifecycle.ViewModelProvider
 import com.elv.myappmovil02.hilt.ProductService
 import com.elv.myappmovil02.hilt.ProductViewModel
 import com.elv.myappmovil02.ui.theme.MyAppMovil02Theme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private lateinit var productViewModel: ProductViewModel
+    private val roductViewModel: ProductViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val productService = ProductService()
+        //val productService = ProductService()
         //val viewModelFactory = ProductViewModel.ProductViewModelFactory(productService)
         //productViewModel = ViewModelProvider(this, viewModelFactory)[ProductViewModel::class.java]
         // --- Fin de la creación manual ---
+
+        roductViewModel.onCreate()
 
 
 
